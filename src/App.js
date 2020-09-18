@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.scss';
-import Header from './header/Header.js'
+import Songs from './pages/Songs.js'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-
-      <p>Hi there</p>
+      <Songs/>
     </div>
   );
 }

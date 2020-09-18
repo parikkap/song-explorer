@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Header.scss";
-import Search from "./Search.js";
+import "./Songs.scss";
+import Search from "../components/Search";
+
 import heroMobile from "../assets/yousician-hero-mobile.png";
 import heroMobile2x from "../assets/yousician-hero-mobile@2x.png";
 import heroMobile3x from "../assets/yousician-hero-mobile@3x.png";
@@ -8,7 +9,7 @@ import heroDesktop from "../assets/yousician-hero.png";
 import heroDesktop2x from "../assets/yousician-hero@2x.png";
 import heroDesktop3x from "../assets/yousician-hero@3x.png";
 
-function Header() {
+function Songs() {
   const heroImageUrl = useWindowWidth();
   const [searchValue, setSearchTerm] = useState("");
 
@@ -50,4 +51,4 @@ const useWindowWidth = () => {
   }
 };
 
-export default Header;
+export default Songs;
