@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './Header.scss';
-import Search from './Search.js';
+import "./Header.scss";
+import Search from "./Search.js";
 import heroMobile from "../assets/yousician-hero-mobile.png";
 import heroMobile2x from "../assets/yousician-hero-mobile@2x.png";
 import heroMobile3x from "../assets/yousician-hero-mobile@3x.png";
@@ -10,14 +10,17 @@ import heroDesktop3x from "../assets/yousician-hero@3x.png";
 
 function Header() {
   const heroImageUrl = useWindowWidth();
-  const [searchValue, setSearchTerm] = useState('');
-
+  const [searchValue, setSearchTerm] = useState("");
 
   return (
     <header>
-      <div className="hero-image" style={{ backgroundImage: `url(${heroImageUrl})` }}>
+      <div
+        className="hero-image"
+        style={{ backgroundImage: `url(${heroImageUrl})` }}
+      >
+        <Search onSearch={(searchTerm) => setSearchTerm(searchTerm)} />
       </div>
-        <Search search={searchValue}/>
+      <span>{searchValue}</span>
     </header>
   );
 }

@@ -1,0 +1,27 @@
+@import "../styles/colors";
+
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  border-radius: 2rem;
+  border: none;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 2rem;
+  height: 2.5rem;
+}
+
+input[type="text" i] {
+  padding: 0 2rem;
+}
+
+input[type="text"]:focus {
+  //  outline: none;
+  //  border: 1px solid #a0d18c;
+  //  color: #2d9fd9;
+}
