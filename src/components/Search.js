@@ -1,17 +1,20 @@
 import React from "react";
 import "./Search.scss";
-import search from "../assets/icons/search.svg";
+import {ReactComponent as SearchLogo} from "../assets/icons/search.svg";
 import filter from "../assets/icons/filter.svg";
 
 const Search = ({ onSearch }) => {
   return (
-    <div className="input-wrapper">
+    <div className="search">
+      <div className="search__container">
         <input
           placeholder="Search for songs by artist or title"
-          type="text"
+          type="search"
           name="search"
           onChange={(e) => onSearch(e.target.value)}
         />
+        <SearchLogo className="search__logo"/>
+      </div>
     </div>
   );
 };

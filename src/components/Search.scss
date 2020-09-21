@@ -1,27 +1,43 @@
 @import "../styles/colors";
 
-.input-wrapper {
-  display: flex;
-  justify-content: center;
+.search {
+  max-width: 35rem;
+  height: 3rem;
+  margin: 0 auto;
+
+  &__container {
+    background-color: $white;
+    max-width: 35rem;
+    margin: 0 auto;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+  }
+
+  &__logo {
+    vertical-align: middle;
+  }
 }
 
 input {
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  border-radius: 2rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   border: none;
-  width: 100%;
-  max-width: 30rem;
-  margin: 0 2rem;
-  height: 2.5rem;
+  outline: none;
+  width: calc(100% - 55px);
+  height: 2.9rem;
 }
 
-input[type="text" i] {
-  padding: 0 2rem;
+input[type="search" i] {
+  // padding: 0 2rem;
 }
 
 input[type="text"]:focus {
   //  outline: none;
   //  border: 1px solid #a0d18c;
   //  color: #2d9fd9;
+}
+input[type="search"]:focus {
+  outline: none;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Songs.scss";
 import Search from "../components/Search";
+import ListContainer from "../components/ListContainer";
 
 import heroMobile from "../assets/yousician-hero-mobile.png";
 import heroMobile2x from "../assets/yousician-hero-mobile@2x.png";
@@ -14,15 +15,27 @@ function Songs() {
   const [searchValue, setSearchTerm] = useState("");
 
   return (
-    <header>
-      <div
-        className="hero-image"
-        style={{ backgroundImage: `url(${heroImageUrl})` }}
-      >
-        <Search onSearch={(searchTerm) => setSearchTerm(searchTerm)} />
-      </div>
-      <span>{searchValue}</span>
-    </header>
+    <div className="songs-page">
+      <section className="hero">
+        <div
+          className="hero__image"
+          style={{ backgroundImage: `url(${heroImageUrl})` }}
+        >
+          <div className="hero__inner-container">
+            <h1>New song delivered every week</h1>
+            <p className="hero__intro">
+              Here are the most resent additions to the Yousician App. Start
+              playing today!
+            </p>
+            <Search onSearch={(searchTerm) => setSearchTerm(searchTerm)} />
+          </div>
+        </div>
+      </section>
+      <section className="song-list__container">
+        <span>filter</span>
+        <ListContainer/>
+      </section>
+    </div>
   );
 }
 

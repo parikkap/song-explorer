@@ -1,7 +1,30 @@
-.hero-image {
-  width: 100vw;
-  height: 250px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+@import "../styles/colors";
+
+.hero {
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__inner-container {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  &__intro {
+    padding: 0 1rem;
+  }
+}
+
+.song-list {
+  &__container {
+    background-color: $black;
+  }
 }
