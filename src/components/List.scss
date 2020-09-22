@@ -1,3 +1,9 @@
+@import "../styles/colors";
+
 .list {
-    list-style: none;
+  list-style: none;
+}
+
+.favorite {
+  fill: $red;
 }

@@ -5,12 +5,12 @@ import List from "./List";
 const ListContainer = ({ query }) => {
   const [songs, setSongs] = useState([]);
   const [favoriteId, setFavoriteId] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   const [errors, setErrors] = useState();
-
+  // console.log(songs);
   const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-
   //Fetch song  data
   const getSongs = async (query) => {
     const result = await fetch(`/songs?search_like=${query}`, {
@@ -46,20 +46,28 @@ const ListContainer = ({ query }) => {
   }, [query]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const postFavorite = async () => {
       if (favoriteId) {
         await axios
           .post("/favorites", { songId: favoriteId })
-          .then((response) => console.log("succesfull post fav"))
+          .then((response) => fetchFavorites())
           .catch((error) => setErrors(error));
       }
     };
-    fetchData();
+    postFavorite();
+
+    const fetchFavorites = async () => {
+      const results = await fetch("/favorites", {
+        headers: { accept: "application/json" },
+      });
+      const data = await results.json();
+      setFavorites(data);
+    };
   }, [favoriteId]);
 
   return (
     <div>
-      <List songs={songs} onFavoriteClick={(id) => setFavoriteId(id)} />
+      <List songs={songs} favorites={favorites} onFavoriteClick={(id) => setFavoriteId(id)} />
     </div>
   );
 };
