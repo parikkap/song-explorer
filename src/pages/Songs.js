@@ -12,7 +12,7 @@ import heroDesktop3x from "../assets/yousician-hero@3x.png";
 
 function Songs() {
   const heroImageUrl = useWindowWidth();
-  const [searchValue, setSearchTerm] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className="songs-page">
@@ -27,13 +27,13 @@ function Songs() {
               Here are the most resent additions to the Yousician App. Start
               playing today!
             </p>
-            <Search onSearch={(searchTerm) => setSearchTerm(searchTerm)} />
+            <Search onSearch={(searchTerm) => setSearchQuery(searchTerm)} />
           </div>
         </div>
       </section>
       <section className="song-list__container">
         <span>filter</span>
-        <ListContainer/>
+        <ListContainer query={searchQuery}/>
       </section>
     </div>
   );
