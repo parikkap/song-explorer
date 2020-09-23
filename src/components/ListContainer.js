@@ -4,7 +4,11 @@ import List from "./List";
 
 const ListContainer = ({ query }) => {
   const [songs, setSongs] = useState([]);
-  const [favoriteId, setFavoriteId] = useState(null);
+  const [favorite, setFavorite] = useState({
+    id: "",
+    songId: '',
+    favorite: false,
+  });
   const [favorites, setFavorites] = useState([]);
   const [errors, setErrors] = useState();
   // console.log(songs);
@@ -27,14 +31,14 @@ const ListContainer = ({ query }) => {
     const loadSongs = async () => {
       if (!query) {
         const songs = await getSongs(query, controller);
-        return setSongs(songs);
+        return setSongs(songs, favorites);
       }
 
       await sleep(350);
 
       if (currentQuery) {
         const songs = await getSongs(query, controller);
-        setSongs(songs);
+        setSongs(songs, favorites);
       }
     };
     loadSongs();
@@ -43,18 +47,27 @@ const ListContainer = ({ query }) => {
       currentQuery = false;
       controller.abort();
     };
-  }, [query]);
+  }, [favorites, query]);
 
   useEffect(() => {
-    const postFavorite = async () => {
-      if (favoriteId) {
-        await axios
-          .post("/favorites", { songId: favoriteId })
-          .then((response) => fetchFavorites())
-          .catch((error) => setErrors(error));
-      }
+    const removeFavorite = async () => {
+      await axios
+        .delete(`/favorites/${favorite.id}`)
+        .then((response) => fetchFavorites())
+        .catch((error) => setErrors(error));
     };
-    postFavorite();
+    const addFavorite = async () => {
+      await axios
+        .post(`/favorites`, { songId: favorite.songId })
+        .then((response) => fetchFavorites())
+        .catch((error) => setErrors(error));
+    };
+    console.log(favorite)
+    if (favorite.songId && !favorite.favorite) {
+      addFavorite();
+    } else if (favorite.id && favorite.favorite) {
+      removeFavorite();
+    }
 
     const fetchFavorites = async () => {
       const results = await fetch("/favorites", {
@@ -63,11 +76,16 @@ const ListContainer = ({ query }) => {
       const data = await results.json();
       setFavorites(data);
     };
-  }, [favoriteId]);
+    fetchFavorites();
+  }, [favorite]);
 
   return (
     <div>
-      <List songs={songs} favorites={favorites} onFavoriteClick={(id) => setFavoriteId(id)} />
+      <List
+        songs={songs}
+        favorites={favorites}
+        onFavoriteClick={(id, favorite, songId) => setFavorite({ id, songId, favorite })}
+      />
     </div>
   );
 };

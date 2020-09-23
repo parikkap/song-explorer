@@ -5,5 +5,12 @@
 }
 
 .favorite {
-  fill: $red;
+  fill: $black;
+  &--active {
+    fill: $red;
+  }
+  
+  &--notactive {
+    fill: $black;
+  }
 }
