@@ -43,6 +43,10 @@
   &--open {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    @media (min-width: 990px) {
+    }
   }
   &--closed {
     display: none;

@@ -91,7 +91,7 @@ function Songs() {
         if (songs && songs.length > 0) {
           setNotFound(null);
         } else {
-          setNotFound("Nothing was found");
+          setNotFound("Sorry! Nothing was found.");
         }
       }
     };
@@ -117,7 +117,7 @@ function Songs() {
           ) : songs && songs.length > 0 ? (
             <List songs={songs} />
           ) : (
-            <div>{notFound}</div>
+            <div className="not-found"><span>{notFound}</span></div>
           )}
         </div>
       </section>
