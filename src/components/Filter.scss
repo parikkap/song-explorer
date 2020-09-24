@@ -3,9 +3,18 @@
 .filter {
   fill: $white;
 
-  &__button, &__level-button {
+  &__button,
+  &__level-button {
     background: transparent;
     border: none;
+    padding: 0.5em;
+
+    &:focus, &:hover {
+      outline: none;
+      border: 1px solid $grey-light;
+      border-radius: 50%;
+      padding: 0.5em;
+    }
   }
   &--open {
     display: flex;

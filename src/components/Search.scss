@@ -9,9 +9,14 @@
     background-color: $white;
     max-width: 35rem;
     margin: 0 auto;
+    border: 2px solid transparent;
     border-radius: 2rem;
     -webkit-border-radius: 2rem;
     -moz-border-radius: 2rem;
+
+    &:focus-within {
+      border: 2px solid $grey-dark;
+    }
   }
 
   &__logo {
@@ -29,15 +34,6 @@ input {
   height: 2.9rem;
 }
 
-input[type="search" i] {
-  // padding: 0 2rem;
-}
-
-input[type="text"]:focus {
-  //  outline: none;
-  //  border: 1px solid #a0d18c;
-  //  color: #2d9fd9;
-}
 input[type="search"]:focus {
   outline: none;
 }

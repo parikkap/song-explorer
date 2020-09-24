@@ -111,7 +111,7 @@ function Songs() {
           filterArray={filterArray}
           onLevelClick={(level) => checkForFilters(level)}
         />
-        <div className="song-list__container">
+        {/* <div className="song-list__container">
           {loading ? (
             <Loader />
           ) : songs && songs.length > 0 ? (
@@ -119,7 +119,7 @@ function Songs() {
           ) : (
             <div>{notFound}</div>
           )}
-        </div>
+        </div> */}
       </section>
     </div>
   );

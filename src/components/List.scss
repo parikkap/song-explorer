@@ -2,17 +2,55 @@
 
 .list {
   list-style: none;
+
+  .list-item {
+    background: $black-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+
+    &__left-wrapper, &__right-wrapper {
+      display: inline-flex;
+    }
+
+    &__image {
+      object-fit: cover;
+      width: 60px;
+      height: 60px;
+    }
+
+    &__text-wrapper {
+      margin-left: 1rem;
+    }
+
+    &__title {
+      font-size: 0.8em;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+
+    &__artist {
+      font-size: 0.8em;
+    }
+  }
+  .list-item:nth-child(odd) {
+    background: $black;
+  }
 }
 
 .favorite {
-
   &__button {
-    // background-color: transparent;
+    background-color: transparent;
     outline: none;
     border: none;
+    margin-left: 1rem;
   }
   fill: $black;
   &--active {
     fill: $red;
+  }
+  &--notactive {
+   fill: #383635;
   }
 }
