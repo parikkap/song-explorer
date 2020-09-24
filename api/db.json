@@ -3698,6 +3698,21 @@
     }
   ],
   "favorites": [
-  
+    {
+      "songId": "5b8e47deb3984c68ed8192e3",
+      "id": 1
+    },
+    {
+      "songId": "5b8f736fb3984c13548374af",
+      "id": 2
+    },
+    {
+      "songId": "5b8f736fb3984c13548374af",
+      "id": 3
+    },
+    {
+      "songId": "5b8e465ab3984c68ed8191ed",
+      "id": 4
+    }
   ]
 }

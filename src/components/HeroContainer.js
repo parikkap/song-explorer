@@ -19,7 +19,7 @@ const HeroContainer = ({ onSearchQuery }) => {
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       >
         <div className="hero__inner-container">
-          <h1>New song delivered every week</h1>
+          <h1 className="hero__heading">New song delivered every week</h1>
           <p className="hero__intro">
             Here are the most resent additions to the Yousician App. Start
             playing today!

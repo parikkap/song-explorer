@@ -15,7 +15,13 @@
       padding: 0 1rem;
     }
   
+    &__heading {
+      font-size: 1.9em;
+      margin: 0;
+    }
     &__intro {
-      padding: 0 1rem;
+      font-size: 0.9em;
+      margin-top: 0.8rem;
+      margin-bottom: 1.5rem;
     }
   }  
