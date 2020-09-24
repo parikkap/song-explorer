@@ -1,20 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./Songs.scss";
-import Search from "../components/Search";
+import HeroContainer from "../components/HeroContainer";
 import List from "../components/List";
 import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 
-import heroMobile from "../assets/yousician-hero-mobile.png";
-import heroMobile2x from "../assets/yousician-hero-mobile@2x.png";
-import heroMobile3x from "../assets/yousician-hero-mobile@3x.png";
-import heroDesktop from "../assets/yousician-hero.png";
-import heroDesktop2x from "../assets/yousician-hero@2x.png";
-import heroDesktop3x from "../assets/yousician-hero@3x.png";
-
 function Songs() {
-  const searchLikeKey = "search_like=";
-  const heroImageUrl = useWindowWidth();
   const [searchQuery, setSearchQuery] = useState("");
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -41,7 +32,7 @@ function Songs() {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
-  //Fetch song  data
+  //Fetch song data
   const getSongs = async (query) => {
     const result = await fetch(`/songs?${query}`, {
       headers: { accept: "application/json" },
@@ -114,25 +105,7 @@ function Songs() {
 
   return (
     <div className="songs-page">
-      <section className="hero">
-        <div
-          className="hero__image"
-          style={{ backgroundImage: `url(${heroImageUrl})` }}
-        >
-          <div className="hero__inner-container">
-            <h1>New song delivered every week</h1>
-            <p className="hero__intro">
-              Here are the most resent additions to the Yousician App. Start
-              playing today!
-            </p>
-            <Search
-              onSearch={(searchTerm) =>
-                setSearchQuery(searchLikeKey + searchTerm)
-              }
-            />
-          </div>
-        </div>
-      </section>
+      <HeroContainer onSearchQuery={(searchQuery) => setSearchQuery(searchQuery)}/>
       <section className="main">
         <Filter
           filterArray={filterArray}
@@ -151,35 +124,5 @@ function Songs() {
     </div>
   );
 }
-
-// {songs && songs.length > 0 ? (
-//   <List songs={songs}/>
-// ) : (
-//   <div>{notFound}</div>
-// )}
-const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
-  if (windowWidth <= 320) {
-    return heroMobile;
-  } else if (windowWidth <= 640) {
-    return heroMobile2x;
-  } else if (windowWidth <= 960) {
-    return heroMobile3x;
-  } else if (windowWidth <= 1440) {
-    return heroDesktop;
-  } else if (windowWidth <= 2800) {
-    return heroDesktop2x;
-  } else {
-    return heroDesktop3x;
-  }
-};
 
 export default Songs;
