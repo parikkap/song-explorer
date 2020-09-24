@@ -33,10 +33,14 @@
     &__artist {
       font-size: 0.8em;
     }
+    &__level-indicator {
+      color: $white;
+    }
   }
   .list-item:nth-child(odd) {
     background: $black;
   }
+
 }
 
 .favorite {
@@ -51,6 +55,6 @@
     fill: $red;
   }
   &--notactive {
-   fill: #383635;
+   fill: $grey-dark;
   }
 }

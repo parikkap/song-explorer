@@ -1,6 +1,7 @@
 @import "../styles/colors";
 
 .level {
+
   &--active {
     .level-indicator__progress-bg {
       fill: $white;
@@ -85,7 +86,8 @@
   width: 100%;
   height: 100%;
   color: currentColor;
-  font-weight: 900;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .level-indicator__label--vishidden {

@@ -77,7 +77,7 @@ const List = ({ songs }) => {
               </div>
             </div>
             <div className="list-item__right-wrapper">
-              <LevelIndicator level={item.level} />
+              <LevelIndicator id={item.level} />
               <button
                 className="favorite__button"
                 onClick={(e) =>
