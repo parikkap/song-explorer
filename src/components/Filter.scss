@@ -1,26 +1,43 @@
 @import "../styles/colors";
 
 .filter {
-  fill: $white;
+    display: flex;
+    flex-direction: column;
+    max-width: 59rem;
+    padding: 0.3rem 1rem;
 
-  &__button,
+
+  &__logo {
+      fill: $white;
+  }
+
+  &__button-wrapper {
+    text-align: end;
+  }
+
+  &__button {
+    background: transparent;
+    border-radius: 50%;
+    border: 2px  solid $white;
+    padding: 0.3em;
+    margin: 0.3rem 1.3rem;
+}
+
   &__level-button {
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     padding: 0.5em;
+    border-radius: 50%;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       outline: none;
       border: 1px solid $grey-light;
-      border-radius: 50%;
-      padding: 0.5em;
     }
   }
   &--open {
     display: flex;
     justify-content: space-evenly;
-    max-width: 59rem;
-    margin: 0 auto;
   }
   &--closed {
     display: none;

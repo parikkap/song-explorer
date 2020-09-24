@@ -10,10 +10,12 @@ const Filter = ({ filterArray, onLevelClick }) => {
     setFilterToggle(toggle);
   };
   return (
-    <div>
+    <div className="filter">
+      <div className="filter__button-wrapper">
       <button className="filter__button" onClick={(e) => handleClick()}>
-        <FilterLogo className="filter" />
+        <FilterLogo className="filter__logo" />
       </button>
+      </div>
       <div className={filterToggle ? "filter--open" : "filter--closed"}>
         {filterArray.map((item) => {
             

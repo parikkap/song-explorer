@@ -47,23 +47,33 @@
   stroke-width: var(--strokeWidth);
 }
 
-// .level-indicator__dash {
-//   --color: currentColor;
+.level-indicator__dash {
+  --color: currentColor;
 
-//   stroke: $red;
-//   fill: none;
-//   stroke-width: var(--strokeWidth);
-//   stroke-dasharray: 130;
-//   transition: all 1 ease-in;
-// }
+  stroke: $black;
+  fill: none;
+  stroke-width: var(--strokeWidth);
+}
 
 .level-indicator__progress-circle {
   --color: currentColor;
 
-  stroke: $red;
+  stroke: var(--color);
   fill: none;
   stroke-width: var(--strokeWidth);
   transition: all 0.1 ease-in;
+
+  &--green {
+    stroke: $green;
+  }
+
+  &--orange {
+    stroke: $orange;
+  }
+
+  &--red {
+    stroke: $red;
+  }
 }
 
 .level-indicator__level {
