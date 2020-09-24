@@ -3698,49 +3698,6 @@
     }
   ],
   "favorites": [
-    {
-      "songId": "5c6d3226e8dec373d7524b24",
-      "id": 1
-    },
-    {
-      "songId": "5b1525f4e8dec30152a1ef05",
-      "id": 9
-    },
-    {
-      "songId": "5b8e47deb3984c68ed8192e3",
-      "id": 10
-    },
-    {
-      "songId": "5b8e47deb3984c68ed8192e3",
-      "id": 11
-    },
-    {
-      "songId": "5b29e4c9e8dec32f61b9f720",
-      "id": 12
-    },
-    {
-      "songId": "5b8fb11ae8dec3365050e8f7",
-      "id": 13
-    },
-    {
-      "songId": "5b8e465ab3984c68ed8191ed",
-      "id": 14
-    },
-    {
-      "songId": "5b432177e8dec348bf66715f",
-      "id": 15
-    },
-    {
-      "songId": "5b8e471cb3984c68ed81926d",
-      "id": 16
-    },
-    {
-      "songId": "5ba584e4e8dec304cfedf57c",
-      "id": 17
-    },
-    {
-      "songId": "5ba584e4e8dec304cfedf57c",
-      "id": 18
-    }
+  
   ]
 }

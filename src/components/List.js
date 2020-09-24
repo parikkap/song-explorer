@@ -13,20 +13,19 @@ const List = ({ songs }) => {
     songId: "",
     favorite: false,
   });
-  const [errors, setErrors] = useState();
 
   useEffect(() => {
     const removeFavorite = async () => {
       await axios
         .delete(`/favorites/${favorite.id}`)
-        .then((response) => fetchFavorites())
-        .catch((error) => setErrors(error));
+        .then(() => fetchFavorites())
+        .catch((error) => console.log('There was an error while deleting  favorite',error));
     };
     const addFavorite = async () => {
       await axios
         .post(`/favorites`, { songId: favorite.songId })
-        .then((response) => fetchFavorites())
-        .catch((error) => setErrors(error));
+        .then(() => fetchFavorites())
+        .catch((error) => console.log('There was an error while adding  favorite',error));
     };
 
     if (favorite.songId && !favorite.favorite) {
@@ -46,10 +45,10 @@ const List = ({ songs }) => {
   }, [favorite]);
 
   const checkIfFavorite = (id) => {
-    const fav = favorites.find((fav) => fav.songId === id);
+    const favorite = favorites.find((fav) => fav.songId === id);
     return {
-      favoriteId: fav && fav.id ? fav.id : null,
-      favorite: !!fav ? true : false,
+      favoriteId: favorite && favorite.id ? favorite.id : null,
+      favorite: !!favorite ? true : false,
       songId: id,
     };
   };
@@ -80,7 +79,7 @@ const List = ({ songs }) => {
               <LevelIndicator id={item.level} />
               <button
                 className="favorite__button"
-                onClick={(e) =>
+                onClick={(e) => 
                   setFavorite({
                     id: item.favoriteId,
                     songId: item.songId,

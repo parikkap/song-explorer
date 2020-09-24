@@ -26,7 +26,7 @@ const HeroContainer = ({ onSearchQuery }) => {
           </p>
           <Search
             onSearch={(searchQuery) =>
-                onSearchQuery(searchLikeKey + searchQuery)
+              onSearchQuery(searchLikeKey + searchQuery)
             }
           />
         </div>

@@ -3,11 +3,7 @@ import './App.scss';
 import Songs from './pages/Songs.js'
 
 function App() {
-  return (
-    <div className="App">
-      <Songs/>
-    </div>
-  );
+  return <Songs/>;
 }
 
 export default App;

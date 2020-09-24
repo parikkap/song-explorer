@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Filter.scss";
 import LevelIndicator from "./LevelIndicator";
 import { ReactComponent as FilterLogo } from "../assets/icons/filter.svg";

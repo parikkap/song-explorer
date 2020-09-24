@@ -2,7 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run in root:
+
+### `yarn`
+
+To install dependencies
 
 ### `yarn start`
 
@@ -12,10 +16,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn start-api`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the fake json api
 
 ### `yarn build`
 
@@ -26,6 +29,33 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Please refer to [instructions.md](INSTRUCTIONS.md) for more info
+
+### TODO: Add tests to application
+
+## Project structure
+
+```
+.
+├── api                 #Fake json api
+├── build               # Compiled files
+├── public              # Public files
+│ 
+└─ src                  # Source files
+    ├── assets          # Static assets
+    ├── components      # Reusable App Components
+    ├── Pages           # App views
+    ├── styles          # Global styles
+    │   └── _colors.scss  # Global colors
+    └── ...          
+
+```
+
+
+
+
+
 
 ### `yarn eject`
 

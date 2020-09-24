@@ -57,7 +57,7 @@ function Songs() {
     let currentQuery = true;
     const controller = new AbortController();
 
-    const generateSearchString = () => {
+    const generateFilterString = () => {
       let tempLevelString = "";
       let level = "level=";
 
@@ -69,7 +69,7 @@ function Songs() {
     };
 
     if (filterArray) {
-      levelString = generateSearchString();
+      levelString = generateFilterString();
     }
 
     const loadSongs = async (levelString) => {
@@ -81,7 +81,7 @@ function Songs() {
         setLoading(false);
         return setSongs(songs);
       }
-
+      // Sleep to not send continuous requests
       await sleep(350);
 
       if (currentQuery) {
