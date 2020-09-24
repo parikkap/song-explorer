@@ -1,0 +1,19 @@
+@import "../styles/colors";
+
+.filter {
+  fill: $white;
+
+  &__button, &__level-button {
+    background: transparent;
+    border: none;
+  }
+  &--open {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 59rem;
+    margin: 0 auto;
+  }
+  &--closed {
+    display: none;
+  }
+}

@@ -5,12 +5,14 @@
 }
 
 .favorite {
+
+  &__button {
+    // background-color: transparent;
+    outline: none;
+    border: none;
+  }
   fill: $black;
   &--active {
     fill: $red;
-  }
-  
-  &--notactive {
-    fill: $black;
   }
 }

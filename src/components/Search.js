@@ -1,7 +1,6 @@
 import React from "react";
 import "./Search.scss";
 import {ReactComponent as SearchLogo} from "../assets/icons/search.svg";
-import filter from "../assets/icons/filter.svg";
 
 const Search = ({ onSearch }) => {
   return (

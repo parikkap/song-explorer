@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ReactComponent as FavoriteLogo } from "../assets/icons/favorite.svg";
+import { ReactComponent as FavoriteLogoFilled } from "../assets/icons/favorite.svg";
+import { ReactComponent as FavoriteLogoBorder } from "../assets/icons/favorite_border.svg";
+
 import "./List.scss";
 
 const List = ({ songs }) => {
@@ -42,7 +44,7 @@ const List = ({ songs }) => {
     fetchFavorites();
   }, [favorite]);
 
-  const checkForFav = (id) => {
+  const checkIfFavorite = (id) => {
     const fav = favorites.find((fav) => fav.songId === id);
     return {
       favoriteId: fav && fav.id ? fav.id : null,
@@ -51,7 +53,7 @@ const List = ({ songs }) => {
     };
   };
   const addFavoritesToSongs = songs.map((song) => {
-    return { ...song, ...checkForFav(song.id) };
+    return { ...song, ...checkIfFavorite(song.id) };
   });
 
   return (
@@ -61,6 +63,7 @@ const List = ({ songs }) => {
           <li key={item.id}>
             {item.title}
             <button
+              className="favorite__button"
               onClick={(e) =>
                 setFavorite({
                   id: item.favoriteId,
@@ -69,11 +72,11 @@ const List = ({ songs }) => {
                 })
               }
             >
-              <FavoriteLogo
-                className={
-                  item.favorite ? "favorite--active" : "favorite--notactive"
-                }
-              />
+              {item.favorite ? (
+                <FavoriteLogoFilled className="favorite--active" />
+              ) : (
+                <FavoriteLogoBorder />
+              )}
             </button>
           </li>
         );

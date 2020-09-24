@@ -1,0 +1,84 @@
+@import "../styles/colors";
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+.loader__svg {
+  --loaderWidth: 1rem;
+
+  display: block;
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: var(--loaderWidth);
+}
+
+.loader .loader__svg {
+  --loaderWidth: 4rem;
+}
+
+.loader__svg-path {
+  --duration: 1.5s;
+
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash var(--duration) ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: currentColor;
+  stroke-width: 0.25rem;
+}
+
+.loader .loader__svg-path {
+  animation: dash var(--duration) ease-in-out infinite,
+    color 6s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: $white;
+  }
+
+  20% {
+    stroke: $orange;
+  }
+
+  40% {
+    stroke: $red;
+  }
+
+  60% {
+    stroke: $green;
+  }
+
+  80% {
+    stroke: $orange;
+  }
+}
